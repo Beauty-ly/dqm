@@ -1,0 +1,81 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>ODS</title>
+<link href="themes/css/login.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript">
+			function wininit() {
+				var width, height;
+				if ( document.layers ) {
+					width = window.screen.availWidth - 10;
+					height = window.screen.availHeight - 20;
+				} else {
+					width = window.screen.availWidth;
+					height = window.screen.availHeight;
+				}
+				window.resizeTo(width, height);
+				window.moveTo(0,0);
+				document.getElementById('username').focus();
+			}
+			function checkLogon(){
+				var username = document.forms[0].elements['username'].value;
+				var password = document.forms[0].elements['password'].value;
+				var infoObj = document.getElementById("info");
+				if(username==null || username ==""){
+					alert("用户名不能为空");
+					infoObj.innerHTML = '用户名不能为空';
+					return false;
+				}
+				else
+				if(password==null || password==""){
+					alert("密码不能为空");
+					infoObj.innerHTML = '密码不能为空';
+					return false;
+				}
+				else
+					document.forms[0].submit();
+				return false;
+			}
+		</script>
+</head>
+
+<body>
+	<div id="login">
+		<div id="login_header">
+			<h1 class="login_logo">
+				<a ><img src="themes/default/images/fwyy-title.png" /></a>
+			</h1>
+		</div>
+		<div id="login_content" >
+			<div class="loginForm">
+				<form method="post" action="LoginServlet" onSubmit="return checkLogon()">
+					<p>
+						<label>用户名：</label>
+						<input type="text" name="username" size="20" class="login_input" />
+					</p>
+					<p>
+						<label>密码：</label>
+						<input type="password" name="password" size="20" class="login_input" />
+					</p>
+				<!-- 
+					<p>
+						<label>验证码：</label>
+						<input class="code" type="text" size="5" />
+						<span><img src="themes/default/images/header_bg.png" alt="" width="75" height="24" /></span>
+					</p>
+					 -->
+					<div class="login_bar">
+						<input class="sub" type="submit" value=" " />
+					</div>
+				</form>
+			</div>
+			<div class="login_banner"><img src="themes/default/images/login_page.jpg" /></div>
+
+		</div>
+		<div id="login_footer">
+			Copyright &copy; 2017 fwyy xxzx Ly Inc. All Rights Reserved.
+		</div>
+	</div>
+</body>
+</html>
